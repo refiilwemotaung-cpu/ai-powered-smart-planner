@@ -1,0 +1,173 @@
+.ai-assistant {
+  padding: 1rem 0;
+}
+
+.ai-container {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: 12px;
+  color: white;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.ai-container.welcome {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.ai-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ai-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.ai-title h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.ai-title p {
+  margin: 0.25rem 0 0 0;
+  opacity: 0.9;
+}
+
+.ai-toggle {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: auto;
+  transition: background 0.3s ease;
+}
+
+.ai-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ai-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.ai-suggestion {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.ai-suggestion h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.ai-suggestion p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.ai-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ai-warning {
+  background: rgba(255, 71, 87, 0.3);
+  border: 1px solid rgba(255, 71, 87, 0.5);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Smart Watch */
+@media (max-width: 240px) {
+  .ai-assistant {
+    padding: 0.5rem 0;
+  }
+
+  .ai-header {
+    padding: 1rem;
+  }
+
+  .ai-icon {
+    font-size: 1.5rem;
+  }
+
+  .ai-title h3 {
+    font-size: 1rem;
+  }
+
+  .ai-content {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .ai-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .stat-item {
+    padding: 0.5rem;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .ai-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
