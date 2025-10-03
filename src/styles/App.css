@@ -65,3 +65,14 @@ body {
     font-size: 14px;
   }
 }
+
+/* Watch View Toggle */
+.desktop-view {
+  display: block;
+}
+
+@media (max-width: 240px) {
+  .desktop-view {
+    display: none;
+  }
+}
