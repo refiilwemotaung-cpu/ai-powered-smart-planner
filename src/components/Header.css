@@ -35,10 +35,10 @@
 }
 
 .logo h1 {
-  color: var(--primary-color);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .tagline {
@@ -49,23 +49,14 @@
 }
 
 .theme-toggle-btn {
-  background: var(--background-color);
-  border: 2px solid var(--border-color);
-  border-radius: 25px;
-  padding: 0.5rem 1rem;
-  color: var(--text-color);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 500;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
 }
 
 .theme-toggle-btn:hover {
-  border-color: var(--primary-color);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow);
+  background: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
 .theme-icon {
