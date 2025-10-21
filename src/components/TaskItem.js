@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTasks } from "../contexts/TaskContext";
-//import "./TaskItem.css";
+import "./TaskItem.css";
 
 const TaskItem = ({ task }) => {
   const { updateTask, deleteTask, toggleTaskCompletion } = useTasks();
