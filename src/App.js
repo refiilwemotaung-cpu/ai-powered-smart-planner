@@ -2,6 +2,7 @@ import React from "react";
 import { TaskProvider } from "./contexts/TaskContext";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
+import AIAssistant from "./components/AIAssistant";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/App.css";
 
@@ -15,6 +16,7 @@ function App() {
         </header>
         <main className="main-content">
           <div className="container">
+            <AIAssistant />
             <TaskForm />
             <TaskList />
           </div>
