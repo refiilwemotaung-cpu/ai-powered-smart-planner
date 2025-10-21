@@ -4,27 +4,52 @@ import "./TaskForm.css";
 
 const TaskForm = () => {
   const { addTask } = useTasks();
+
+  // Get today's date in YYYY-MM-DD format for the date input default
+  const getTodayDate = () => {
+    return new Date().toISOString().split("T")[0];
+  };
+
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     priority: "medium",
+    date: getTodayDate(),
+    startTime: "",
+    endTime: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.title.trim()) return;
 
+    // Validate time logic (end time should be after start time if both are provided)
+    if (
+      formData.startTime &&
+      formData.endTime &&
+      formData.startTime >= formData.endTime
+    ) {
+      alert("End time must be after start time");
+      return;
+    }
+
     addTask({
       ...formData,
       title: formData.title.trim(),
       description: formData.description.trim(),
+      date: formData.date || getTodayDate(),
+      startTime: formData.startTime || null,
+      endTime: formData.endTime || null,
     });
 
-    // Reset form
+    // Reset form (but keep today's date as default)
     setFormData({
       title: "",
       description: "",
       priority: "medium",
+      date: getTodayDate(),
+      startTime: "",
+      endTime: "",
     });
   };
 
@@ -65,6 +90,47 @@ const TaskForm = () => {
               rows="3"
               className="form-textarea"
             />
+          </div>
+
+          {/* Date Selection */}
+          <div className="form-group">
+            <label htmlFor="date">Date</label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              className="form-input"
+              min={getTodayDate()}
+            />
+          </div>
+
+          {/* Time Selection Section */}
+          <div className="time-section">
+            <div className="form-group">
+              <label htmlFor="startTime">Start Time</label>
+              <input
+                type="time"
+                id="startTime"
+                name="startTime"
+                value={formData.startTime}
+                onChange={handleChange}
+                className="form-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="endTime">End Time</label>
+              <input
+                type="time"
+                id="endTime"
+                name="endTime"
+                value={formData.endTime}
+                onChange={handleChange}
+                className="form-input"
+              />
+            </div>
           </div>
 
           <div className="form-group">
