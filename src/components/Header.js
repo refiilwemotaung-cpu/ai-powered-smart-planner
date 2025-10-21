@@ -1,6 +1,6 @@
 import React from "react";
 import { useTheme } from "../contexts/ThemeContext";
-// import "./Header.css";
+import "./Header.css";
 
 const Header = () => {
   const { isDarkMode, toggleTheme } = useTheme();
