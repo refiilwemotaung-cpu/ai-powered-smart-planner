@@ -13,28 +13,47 @@ export const useTasks = () => {
 
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Load tasks from localStorage on component mount
   useEffect(() => {
     const savedTasks = localStorage.getItem("smartplanner-tasks");
     if (savedTasks) {
-      setTasks(JSON.parse(savedTasks));
+      try {
+        const parsedTasks = JSON.parse(savedTasks);
+        setTasks(parsedTasks);
+      } catch (error) {
+        console.error("Error loading tasks from localStorage:", error);
+        setTasks([]);
+      }
     }
+    setIsLoading(false);
   }, []);
 
-  // Save tasks to localStorage whenever tasks change
   useEffect(() => {
-    localStorage.setItem("smartplanner-tasks", JSON.stringify(tasks));
-  }, [tasks]);
+    if (!isLoading) {
+      try {
+        localStorage.setItem("smartplanner-tasks", JSON.stringify(tasks));
+      } catch (error) {
+        console.error("Error saving tasks to localStorage:", error);
+      }
+    }
+  }, [tasks, isLoading]);
 
   const addTask = (task) => {
     const newTask = {
       id: Date.now().toString(),
-      ...task,
+      title: task.title?.trim() || "",
+      description: task.description?.trim() || "",
+      priority: task.priority || "medium",
+      date: task.date || new Date().toISOString().split("T")[0],
+      startTime: task.startTime || null,
+      endTime: task.endTime || null,
       createdAt: new Date().toISOString(),
       completed: false,
     };
+
     setTasks((prevTasks) => [...prevTasks, newTask]);
+    return newTask;
   };
 
   const updateTask = (id, updatedTask) => {
@@ -49,12 +68,16 @@ export const TaskProvider = ({ children }) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
-  const toggleTaskCompletion = (id) => {
+  const toggleTask = (id) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
         task.id === id ? { ...task, completed: !task.completed } : task
       )
     );
+  };
+
+  const toggleTaskCompletion = (id) => {
+    toggleTask(id);
   };
 
   const getAIRecommendedTasks = () => {
@@ -65,14 +88,26 @@ export const TaskProvider = ({ children }) => {
     return getAISuggestion(tasks);
   };
 
+  const getTasksForDate = (date) => {
+    return tasks.filter((task) => task.date === date);
+  };
+
+  const getScheduledTasks = () => {
+    return tasks.filter((task) => task.startTime && task.endTime);
+  };
+
   const value = {
     tasks,
     addTask,
     updateTask,
     deleteTask,
+    toggleTask,
     toggleTaskCompletion,
     getAIRecommendedTasks,
     getAITaskSuggestion,
+    getTasksForDate,
+    getScheduledTasks,
+    isLoading,
   };
 
   return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>;
