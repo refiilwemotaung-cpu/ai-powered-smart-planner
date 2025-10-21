@@ -1,5 +1,6 @@
 import React from "react";
 import { TaskProvider } from "./contexts/TaskContext";
+import TaskForm from "./components/TaskForm";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/App.css";
 
@@ -13,10 +14,7 @@ function App() {
         </header>
         <main className="main-content">
           <div className="container">
-            <div className="placeholder">
-              <h2>🚀 Task System Ready!</h2>
-              <p>Next: Let's build the task components...</p>
-            </div>
+            <TaskForm />
           </div>
         </main>
       </div>
