@@ -1,7 +1,7 @@
 import React from "react";
 import { useTasks } from "../contexts/TaskContext";
 import { useTheme } from "../contexts/ThemeContexts";
-// import "./WatchView.css";
+import "./WatchView.css";
 
 const WatchView = () => {
   const { tasks } = useTasks();

@@ -1,0 +1,148 @@
+.watch-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.watch-container {
+  background: var(--card-color);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 300px;
+  width: 90%;
+  box-shadow: var(--shadow-lg);
+  border: 3px solid var(--primary-color);
+}
+
+.watch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.watch-header h3 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.3rem;
+}
+
+.task-count {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.watch-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.empty-watch {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-secondary);
+}
+
+.empty-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.empty-watch p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.watch-task {
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 1rem;
+  border-left: 4px solid var(--border-color);
+}
+
+.watch-task.high {
+  border-left-color: var(--error-color);
+}
+
+.watch-task.medium {
+  border-left-color: var(--warning-color);
+}
+
+.watch-task.low {
+  border-left-color: var(--success-color);
+}
+
+.watch-task-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.watch-task-title {
+  font-weight: 600;
+  color: var(--text-color);
+  flex: 1;
+  margin-right: 1rem;
+  font-size: 0.9rem;
+}
+
+.watch-task-priority {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: var(--surface-color);
+}
+
+.watch-task-priority.high {
+  background: var(--error-color);
+  color: white;
+}
+
+.watch-task-priority.medium {
+  background: var(--warning-color);
+  color: white;
+}
+
+.watch-task-priority.low {
+  background: var(--success-color);
+  color: white;
+}
+
+/* Hide watch view on larger screens */
+@media (min-width: 769px) {
+  .watch-view {
+    display: none;
+  }
+}
+
+/* Smart Watch */
+@media (max-width: 240px) {
+  .watch-container {
+    padding: 1rem;
+    max-width: 200px;
+  }
+
+  .watch-header h3 {
+    font-size: 1rem;
+  }
+
+  .watch-task {
+    padding: 0.75rem;
+  }
+
+  .watch-task-title {
+    font-size: 0.8rem;
+  }
+}
