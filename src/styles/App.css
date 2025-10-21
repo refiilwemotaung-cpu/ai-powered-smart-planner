@@ -1,0 +1,137 @@
+:root {
+  --primary-color: #118c8c;
+  --secondary-color: #0e6973;
+  --accent-color: #f2bb16;
+  --success-color: #118c8c;
+  --warning-color: #f2bb16;
+  --error-color: #bf820f;
+  --background-color: #ffffff;
+  --surface-color: #f8faf9;
+  --card-color: #ffffff;
+  --text-color: #0e6973;
+  --text-secondary: #118c8c;
+  --border-color: #bad9ce;
+  --shadow: 0 2px 8px rgba(14, 105, 115, 0.1);
+  --shadow-lg: 0 8px 25px rgba(14, 105, 115, 0.15);
+}
+
+[data-theme="dark"] {
+  --primary-color: #118c8c;
+  --secondary-color: #0e6973;
+  --accent-color: #f2bb16;
+  --success-color: #118c8c;
+  --warning-color: #f2bb16;
+  --error-color: #bf820f;
+  --background-color: #0a2f33;
+  --surface-color: #0e4a4f;
+  --card-color: #0e6973;
+  --text-color: #e0f0ed;
+  --text-secondary: #bad9ce;
+  --border-color: #118c8c;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+}
+
+.app {
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+.app-header {
+  background: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 2rem 0;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.app-header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.placeholder {
+  text-align: center;
+  padding: 3rem;
+  background: var(--card-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.placeholder h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Smart Watch Responsive */
+@media (max-width: 240px) {
+  body {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .container {
+    padding: 0 5px;
+  }
+
+  .app-header {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .placeholder {
+    padding: 1rem;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .app-header {
+    padding: 1.5rem 0;
+  }
+
+  .app-header h1 {
+    font-size: 2rem;
+  }
+}
