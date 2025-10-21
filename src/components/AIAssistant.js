@@ -1,6 +1,6 @@
 import React from "react";
 import { useTasks } from "../contexts/TaskContext";
-// import "./AIAssistant.css";
+import "./AIAssistant.css";
 
 const AIAssistant = () => {
   const { tasks, getAITaskSuggestion, getAIRecommendedTasks } = useTasks();

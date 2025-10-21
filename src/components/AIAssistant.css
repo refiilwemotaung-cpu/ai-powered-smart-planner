@@ -1,0 +1,173 @@
+.ai-assistant {
+  padding: 1rem 0;
+}
+
+.ai-container {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: 12px;
+  color: white;
+  overflow: hidden;
+}
+
+.ai-container.welcome {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.ai-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ai-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.ai-title h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.ai-title p {
+  margin: 0.25rem 0 0 0;
+  opacity: 0.9;
+}
+
+.ai-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.ai-suggestion {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.ai-suggestion h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.ai-suggestion p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.ai-recommendations h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.recommended-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.recommended-task {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.recommended-task:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(4px);
+}
+
+.task-rank {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.task-title {
+  flex: 1;
+  font-weight: 500;
+}
+
+.task-priority {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+/* Smart Watch */
+@media (max-width: 240px) {
+  .ai-assistant {
+    padding: 0.5rem 0;
+  }
+
+  .ai-header {
+    padding: 1rem;
+  }
+
+  .ai-icon {
+    font-size: 1.5rem;
+  }
+
+  .ai-title h3 {
+    font-size: 1rem;
+  }
+
+  .ai-content {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .recommended-task {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .task-rank {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+  }
+
+  .task-title {
+    font-size: 0.8rem;
+  }
+
+  .task-priority {
+    font-size: 0.6rem;
+    padding: 0.125rem 0.375rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .ai-header {
+    padding: 1.25rem;
+  }
+
+  .ai-content {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+}
