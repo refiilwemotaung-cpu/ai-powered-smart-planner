@@ -1,7 +1,7 @@
 import React from "react";
 import { useTasks } from "../contexts/TaskContext";
 import TaskItem from "./TaskItem";
-//import "./TaskList.css";
+import "./TaskList.css";
 
 const TaskList = () => {
   const { tasks } = useTasks();
