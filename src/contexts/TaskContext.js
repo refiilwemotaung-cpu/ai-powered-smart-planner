@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { aiPrioritizeTasks, getAISuggestion } from "../utils/aiPrioritizer";
 
 const TaskContext = createContext();
 
@@ -13,6 +14,7 @@ export const useTasks = () => {
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
 
+  // Load tasks from localStorage on component mount
   useEffect(() => {
     const savedTasks = localStorage.getItem("smartplanner-tasks");
     if (savedTasks) {
@@ -20,6 +22,7 @@ export const TaskProvider = ({ children }) => {
     }
   }, []);
 
+  // Save tasks to localStorage whenever tasks change
   useEffect(() => {
     localStorage.setItem("smartplanner-tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -54,12 +57,22 @@ export const TaskProvider = ({ children }) => {
     );
   };
 
+  const getAIRecommendedTasks = () => {
+    return aiPrioritizeTasks(tasks);
+  };
+
+  const getAITaskSuggestion = () => {
+    return getAISuggestion(tasks);
+  };
+
   const value = {
     tasks,
     addTask,
     updateTask,
     deleteTask,
     toggleTaskCompletion,
+    getAIRecommendedTasks,
+    getAITaskSuggestion,
   };
 
   return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>;
