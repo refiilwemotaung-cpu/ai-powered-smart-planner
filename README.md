@@ -8,7 +8,7 @@
 
 An intelligent task management application that combines beautiful design with smart scheduling capabilities. Plan your tasks with precision using time scheduling, priority management, and AI-powered recommendations.
 
-![AI Smart Planner Demo](https://via.placeholder.com/800x400/667eea/ffffff?text=AI+Smart+Planner+Dashboard)
+![AI Smart Planner Demo](https://ai-powered-smart-planner.vercel.app/)
 
 ## ✨ Features
 
